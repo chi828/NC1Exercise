@@ -13,6 +13,7 @@
 		118190DD2B079CA3005A0522 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 118190DC2B079CA3005A0522 /* Preview Assets.xcassets */; };
 		118190E42B079CEE005A0522 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118190E32B079CEE005A0522 /* QuestionView.swift */; };
 		118190E62B079D1D005A0522 /* SpeechBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118190E52B079D1D005A0522 /* SpeechBubble.swift */; };
+		1181911C2B07AB9D005A0522 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181911B2B07AB9D005A0522 /* AnswerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		118190DC2B079CA3005A0522 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		118190E32B079CEE005A0522 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		118190E52B079D1D005A0522 /* SpeechBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechBubble.swift; sourceTree = "<group>"; };
+		1181911B2B07AB9D005A0522 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				118190D72B079CA1005A0522 /* ContentView.swift */,
+				1181911B2B07AB9D005A0522 /* AnswerView.swift */,
 				118190E32B079CEE005A0522 /* QuestionView.swift */,
 				118190D52B079CA1005A0522 /* NC1ExerciseApp.swift */,
 				118190E52B079D1D005A0522 /* SpeechBubble.swift */,
@@ -145,6 +148,7 @@
 			files = (
 				118190D82B079CA1005A0522 /* ContentView.swift in Sources */,
 				118190E62B079D1D005A0522 /* SpeechBubble.swift in Sources */,
+				1181911C2B07AB9D005A0522 /* AnswerView.swift in Sources */,
 				118190E42B079CEE005A0522 /* QuestionView.swift in Sources */,
 				118190D62B079CA1005A0522 /* NC1ExerciseApp.swift in Sources */,
 			);
