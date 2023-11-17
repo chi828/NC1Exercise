@@ -13,6 +13,12 @@
 		118190DD2B079CA3005A0522 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 118190DC2B079CA3005A0522 /* Preview Assets.xcassets */; };
 		118190E42B079CEE005A0522 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118190E32B079CEE005A0522 /* QuestionView.swift */; };
 		118190E62B079D1D005A0522 /* SpeechBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118190E52B079D1D005A0522 /* SpeechBubble.swift */; };
+		1181911C2B07AB9D005A0522 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181911B2B07AB9D005A0522 /* AnswerView.swift */; };
+		1181911E2B0A474B005A0522 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181911D2B0A474B005A0522 /* Character.swift */; };
+		118191222B0BD90B005A0522 /* QnAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118191212B0BD90B005A0522 /* QnAModel.swift */; };
+		118191242B0BE531005A0522 /* QnAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118191232B0BE531005A0522 /* QnAViewModel.swift */; };
+		118191262B0BEC9D005A0522 /* WordBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118191252B0BEC9D005A0522 /* WordBlockView.swift */; };
+		1181912E2B0D6672005A0522 /* WrappingHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181912D2B0D6672005A0522 /* WrappingHorizontalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +29,12 @@
 		118190DC2B079CA3005A0522 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		118190E32B079CEE005A0522 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		118190E52B079D1D005A0522 /* SpeechBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechBubble.swift; sourceTree = "<group>"; };
+		1181911B2B07AB9D005A0522 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
+		1181911D2B0A474B005A0522 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		118191212B0BD90B005A0522 /* QnAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAModel.swift; sourceTree = "<group>"; };
+		118191232B0BE531005A0522 /* QnAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAViewModel.swift; sourceTree = "<group>"; };
+		118191252B0BEC9D005A0522 /* WordBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBlockView.swift; sourceTree = "<group>"; };
+		1181912D2B0D6672005A0522 /* WrappingHorizontalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHorizontalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +67,15 @@
 		118190D42B079CA1005A0522 /* NC1Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				118190D52B079CA1005A0522 /* NC1ExerciseApp.swift */,
 				118190D72B079CA1005A0522 /* ContentView.swift */,
 				118190E32B079CEE005A0522 /* QuestionView.swift */,
-				118190D52B079CA1005A0522 /* NC1ExerciseApp.swift */,
-				118190E52B079D1D005A0522 /* SpeechBubble.swift */,
+				1181912D2B0D6672005A0522 /* WrappingHorizontalView.swift */,
+				118191272B0C01C5005A0522 /* QuestionArea */,
+				118191282B0C0204005A0522 /* AnswerArea */,
+				118191212B0BD90B005A0522 /* QnAModel.swift */,
+				118191232B0BE531005A0522 /* QnAViewModel.swift */,
+				1181911D2B0A474B005A0522 /* Character.swift */,
 				118190D92B079CA3005A0522 /* Assets.xcassets */,
 				118190DB2B079CA3005A0522 /* Preview Content */,
 			);
@@ -71,6 +88,23 @@
 				118190DC2B079CA3005A0522 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		118191272B0C01C5005A0522 /* QuestionArea */ = {
+			isa = PBXGroup;
+			children = (
+				118190E52B079D1D005A0522 /* SpeechBubble.swift */,
+			);
+			path = QuestionArea;
+			sourceTree = "<group>";
+		};
+		118191282B0C0204005A0522 /* AnswerArea */ = {
+			isa = PBXGroup;
+			children = (
+				118191252B0BEC9D005A0522 /* WordBlockView.swift */,
+				1181911B2B07AB9D005A0522 /* AnswerView.swift */,
+			);
+			path = AnswerArea;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +179,12 @@
 			files = (
 				118190D82B079CA1005A0522 /* ContentView.swift in Sources */,
 				118190E62B079D1D005A0522 /* SpeechBubble.swift in Sources */,
+				118191222B0BD90B005A0522 /* QnAModel.swift in Sources */,
+				1181911C2B07AB9D005A0522 /* AnswerView.swift in Sources */,
+				118191262B0BEC9D005A0522 /* WordBlockView.swift in Sources */,
+				1181911E2B0A474B005A0522 /* Character.swift in Sources */,
+				1181912E2B0D6672005A0522 /* WrappingHorizontalView.swift in Sources */,
+				118191242B0BE531005A0522 /* QnAViewModel.swift in Sources */,
 				118190E42B079CEE005A0522 /* QuestionView.swift in Sources */,
 				118190D62B079CA1005A0522 /* NC1ExerciseApp.swift in Sources */,
 			);
@@ -280,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC1Exercise/Preview Content\"";
+				DEVELOPMENT_TEAM = 2W8KS5MVGR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -308,6 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC1Exercise/Preview Content\"";
+				DEVELOPMENT_TEAM = 2W8KS5MVGR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
