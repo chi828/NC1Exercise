@@ -69,6 +69,7 @@
 			children = (
 				118190D52B079CA1005A0522 /* NC1ExerciseApp.swift */,
 				118190D72B079CA1005A0522 /* ContentView.swift */,
+				1181911B2B07AB9D005A0522 /* AnswerView.swift */,
 				118190E32B079CEE005A0522 /* QuestionView.swift */,
 				1181912D2B0D6672005A0522 /* WrappingHorizontalView.swift */,
 				118191272B0C01C5005A0522 /* QuestionArea */,
