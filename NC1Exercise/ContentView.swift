@@ -11,20 +11,21 @@ struct ContentView: View {
     
     let allQnAs = QnAViewModel().qAndAs
     
-    @State var progress: Float = 0
+    @State var progress: Float = 0.1
     @State var heartCounter: Int = 0
     
     @State var dialog = "Aiuto"
     
-    @State var currentQnA = QnAViewModel().qAndAs[4]
-    @State var words = QnAViewModel().qAndAs[4].generateWords().shuffled()
+    @State var currentQnA = QnAViewModel().qAndAs[0]
+    @State var words = QnAViewModel().qAndAs[0].generateWords().shuffled()
     
-    @State var correctlyAnswered: Bool = true
+    @State var correctlyAnswered: Bool = false
     @State var emptyAnswer = false
     @State var checked = false
     @State var composeSolution: [Binding<Word>] = []
     
     @State var mood: Mood = .normal
+    @State var showExitModal: Bool = false
     
     var layout = WrappingHorizontalLayout()
     
@@ -42,22 +43,23 @@ struct ContentView: View {
                 //Settings, progress and heart
                 HStack {
                     
-                    Button(action: {}, label: {
-                        Image(systemName: "gearshape")
+                    Button(action: { showExitModal.toggle() }, label: {
+                        Image(systemName: "xmark")
                             .foregroundStyle(.gray)
                     })
-                    .accessibilityAddTraits([.isButton])
                     .accessibilityLabel("Settings")
                     ProgressView(value: progress)
                         .tint(.green)
                         .progressViewStyle(.linear)
-                    
                     
                     Image(systemName: "heart.fill")
                         .foregroundStyle(.red)
                     Text("\(heartCounter)").bold().foregroundStyle(.red)
                     
                 }
+                
+                .bold()
+                .font(.title2)
                 
                 Text("Tanslate this sentence")
                     .font(.title2)
@@ -80,14 +82,15 @@ struct ContentView: View {
                 //The sentence composed by the user
                 
                 layout {
-                        ForEach(composeSolution) { $word in
-                            Button(word.word) {
-                                word.selected.toggle()
-                                composeSolution.removeAll(where: {word.id == $0.id})
-                                
-                            }
+                    ForEach(composeSolution) { $word in
+                        Button(word.word) {
+                            word.selected.toggle()
+                            composeSolution.removeAll(where: {word.id == $0.id})
                         }
-                        .buttonStyle(.borderedProminent)
+                        .accessibilityLabel(word.word)
+                    }
+                    .buttonStyle(WordButtonStyle2())
+                    .disabled(checked)
                 }
                 .padding([.top], 30)
                 .frame(minHeight: 100)
@@ -95,21 +98,20 @@ struct ContentView: View {
                 layout {
                     
                     ForEach($words) { $word in
-                        ZStack {
+                        
+                        Button(word.word) {
+                            composeSolution.append($word)
                             
-                            
-                            Button(word.word) {
-                                composeSolution.append($word)
-                                
-                                word.selected.toggle()
-                                //                    print(word.selected)
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .disabled(word.selected)
+                            word.selected.toggle()
                         }
+                        .sensoryFeedback(.selection, trigger: word.selected)
+                        .buttonStyle(WordButtonStyle())
+                        .disabled(word.selected)
+                        
+                        .accessibilityLabel(word.word)
                     }
                     
-
+                    
                     
                     
                 }
@@ -117,24 +119,28 @@ struct ContentView: View {
                 .frame(maxHeight: .infinity)
                 
                 
-                Button("Check") {
+                Button {
                     var finalAnswer = ""
                     for word in composeSolution {
                         finalAnswer.append(word.wrappedValue.word + " ")
                     }
                     finalAnswer = finalAnswer.description.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     correctlyAnswered = currentQnA.answer == finalAnswer
-                    print(correctlyAnswered)
                     checked.toggle()
                     mood = correctlyAnswered ? .happy : .sad
                     progress = correctlyAnswered ? progress + 0.1 : progress - 0.1
+                } label: {
+                    Text("Check")
+                        .frame(maxWidth: .infinity)
+                        .sensoryFeedback(.success, trigger: correctlyAnswered)
                 }
-                .disabled(checked)
-            
-
+                .disabled(checked || composeSolution.isEmpty)
+                .accessibilityLabel("Check if answer is correct")
                 
                 
-                //Check/Continue button
+                
+                
+                //CContinue button
                 Button(action: {
                     if progress >= 1 {
                         progress = 0
@@ -148,6 +154,7 @@ struct ContentView: View {
                     dialog = currentQnA.question
                     mood = .normal
                     checked.toggle()
+                    correctlyAnswered = false
                     composeSolution.removeAll()
                 }, label: {
                     Text("CONTINUE")
@@ -156,6 +163,7 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity)
                         .font(.headline)
                         .bold()
+                        .accessibilityHint("Go to next question")
                 })
                 .disabled(!checked)
                 .buttonStyle(.bordered)
@@ -167,6 +175,11 @@ struct ContentView: View {
             .padding()
             .tint(.green)
             .disabled(emptyAnswer)
+        }
+        .sheet(isPresented: $showExitModal) {
+            ExitView()
+            
+                .presentationDetents([.medium])
         }
     }
 }
