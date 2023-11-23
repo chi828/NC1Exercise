@@ -10,6 +10,7 @@ import SwiftUI
 struct QuestionView: View {
     
     var controlPoint: Float = 0.0
+    var dialog: String
     
     @State var check = true
     
@@ -27,14 +28,15 @@ struct QuestionView: View {
         ZStack {
             SpeechBubble()
                 .stroke(.gray, style: StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round))
-                .fill(.white)
+                .fill(.background)
             .frame(width: 220, height: 100)
-            Text("Aiuto")
+            Text(dialog)
+                .frame(maxWidth: 220)
         }
         
     }
 }
 
 #Preview {
-    QuestionView()
+    QuestionView(dialog: "Aiuto")
 }
